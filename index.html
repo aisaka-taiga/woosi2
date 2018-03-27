@@ -10,16 +10,50 @@
     <script src="bundle.js"></script>
   </head>
   <body>
-	<nav class="navbar navbar-light bg-light">
-	<a class="navbar-brand" href="#">Navbar</a>
+	<div class="text-center">
+	<img src="img/logo.png" height="80"/>
+	<nav class="navbar navbar-light bg-light logo">
 	</nav>
-    <p>
-      <button id="mic">녹음</button>
-      <button id="stopMic">녹음정지</button>
-    </p>
-    <p>
-      <audio id="player" controls></audio>
-    </p>
+	</div>
+	
+	<div class="text-center">
+	<img class="img-responsive center-block" src="img/1.png"/>
+	</div>
+	<div class="text-center">
+	<img class="img-responsive center-block" src="img/2.png"/>
+	</div>
+	
+	<footer class="footer text-center">
+      <div class="container">
+	  <a href=""><img src="img/home.png" height="40"/></a>
+	  <img src="img/find.png" height="40" style="margin-left:50px;">
+	  <a href="./mic.html"><img src="img/mic.png" height="40" style="margin-left:50px;"></a>
+	  <img src="img/heme.png" height="40" style="margin-left:50px;">
+      </div>
+    </footer>
+	
+	<style>
+	html {
+	  position: relative;
+	  min-height: 100%;
+	}
+	
+	body {
+	  /* Margin bottom by footer height */
+	  margin-bottom: 60px;
+	}
+	
+	.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px; line-height: 60px; 
+	/* Vertically center the text there */
+	background-color: black;
+	}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
 </html>
