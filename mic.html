@@ -11,18 +11,20 @@
   </head>
   <body>
 	<div class="text-center">
-	<a href="home.html"><img src="img/logo.png" height="80" alt="woosi"/></a>
+	<img src="img/logo.png" height="80"/>
 	<nav class="navbar navbar-light bg-light logo">
 	</nav>
 	</div>
 	
 	<div class="text-center">
-		<p>
-		  <button id="mic">녹음</button>
-		  <button id="stopMic">녹음정지</button>
-		</p>
+		
 		<p>
 		  <audio id="player" controls></audio>
+		</p>
+		
+		<p>
+		  <button class="rec_start" id="mic">녹음</button>
+		  <button class="rec_stop" id="stopMic">녹음정지</button>
 		</p>
 	</div>
 	
@@ -36,6 +38,11 @@
     </footer>
 	
 	<style>
+	.rec_start{
+		
+		}
+		
+		
 	.footer {
 	position: absolute;
 	bottom: 0;
