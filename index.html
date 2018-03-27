@@ -1,0 +1,107 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Pizzicato.js: A Javascript library for web audio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="shortcut icon" type="image/png" href="./favicon.png">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/prism.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+            <div id="space-blocker-left"></div>
+
+            <div class="container">
+                <div class="logo">
+                    <img src="./img/logo.svg">
+                </div>
+                
+                <h2>A web audio Javascript library</h2>
+
+                <p>Welcome to Pizzicato's demo site.</p>
+
+                <p>Pizzicato aims to simplify the way you create and manipulate sounds via the Web Audio API. For documentation and more information take a look at the <a href="https://github.com/alemangui/pizzicato"> github repository </a></p>
+
+                <div id="downloads">
+
+                </div>
+                <div class="slider-group">
+                    <div class="slider">
+                        <label for="volume-wave">Volume</label>
+                        <input type="range" min="0" max="1" step="0.01" value="1" id="volume-wave" />
+                        <div class="slider-value">1</div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="stop-wave" class="stop action"></button>
+                    <button id="play-wave" class="play action"></button>
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider">
+                        <label for="volume-acoustic">Volume</label>
+                        <input type="range" min="0" max="1" step="0.01" value="1" id="volume-acoustic" />
+                        <div class="slider-value">1</div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="stop-acoustic" class="stop action"></button>
+                    <button id="play-acoustic" class="play action"></button>
+                </div>
+
+
+                <h3 id="sound-from-input">Use your microphone (make sure you have headphones!)</h3>
+                <div class="error" id="microphone-error">Oops! We didn't get your permission to access the microphone.</div>
+                <pre><code class="language-javascript">
+var voice = new Pizzicato.Sound({ source: 'input' });
+                </code></pre>
+
+                <div class="slider-group">
+                    <div class="slider">
+                        <label for="volume-voice">Volume</label>
+                        <input type="range" min="0" max="1" step="0.01" value="1" id="volume-voice" />
+                        <div class="slider-value">1</div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="stop-voice" class="stop action"></button>
+                    <button id="play-voice" class="play action"></button>
+                </div>
+            </div>
+
+        <div id="space-blocker-right"></div>
+
+        </div>
+
+
+        <script src="./Pizzicato.js"></script>
+        <script src="js/vendor/prism.js"></script>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://buttons.github.io/buttons.js"></script>
+        <script src="js/main.js"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+           _gaq.push(['_setAccount', 'UA-25705162-1']);
+           _gaq.push(['_trackPageview']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </body>
+</html>
