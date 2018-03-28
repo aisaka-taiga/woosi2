@@ -3,12 +3,124 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-    <title>우씨 - 뒷담화 어플</title>
+    <title>우씨 || 뒷담화 어플</title>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	
     <script src="bundle.js"></script>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+		
+
+
+		$(document).ready(function(){
+			
+			
+			$("#mic").click(function(){
+				$("#mic").hide();
+				$("#player").hide();
+				$("#stopMic").show();
+				$("#rec_timer").show();
+			});
+		
+		
+			$("#stopMic").click(function(){
+				$("#play_btn").show();
+				$("#scripts").show();
+				$("#stopMic").hide();
+
+				
+			});
+
+			$("#play_btn").click(function(){
+				$("#stop_btn").show();				
+				$("#play_btn").hide();
+				$("#player").show();
+				$('#player').get(0).play();
+				
+			});
+
+			$("#stop_btn").click(function(){
+				$("#play_btn").show();
+				$("#scripts").show();
+				$("#stop_btn").hide();
+				$('#player').get(0).pause();
+				
+				
+			});
+		
+		
+		});
+	
+
+	window.onload = function () {
+  
+  var min = 00; 
+  var sec = 00; 
+  var appendSecs = document.getElementById("sec")
+  var appendMins = document.getElementById("min")
+  var buttonStart = document.getElementById('mic');
+  var buttonStop = document.getElementById('stopMic');
+  var buttonReset = document.getElementById('play');
+  var Interval ;
+
+  buttonStart.onclick = function() {
+    
+     clearInterval(Interval);
+     Interval = setInterval(startTimer, 1000);
+  }
+  
+    buttonStop.onclick = function() {
+       clearInterval(Interval);
+  }
+  
+
+  buttonReset.onclick = function() {
+     clearInterval(Interval);
+    sec = "00";
+  	min = "00";
+    appendSecs.innerHTML = sec;
+  	appendMins.innerHTML = min;
+  }
+  
+   
+  
+  function startTimer () {
+    sec++; 
+    
+    if(sec < 10){
+      appendSecs.innerHTML = "0" + sec;
+    }
+    
+    if (sec > 9){
+      appendSecs.innerHTML = sec;
+      
+    } 
+    
+    if (sec > 59) {
+      console.log("min");
+      min++;
+      appendMins.innerHTML = "0" + min;
+      sec = 0;
+      appendSecs.innerHTML = "0" + 0;
+    }
+    
+    if (min > 9){
+      appendMins.innerHTML = min;
+    }
+  
+  }
+  
+
+}
+	</script>
+
+
+
   </head>
+  
+  
   <body>
 	<div class="text-center">
 	<a href="index.html"><img src="img/logo.png" height="80" alt="woosi"/></a>
@@ -16,16 +128,32 @@
 	</nav>
 	</div>
 	
-	<div class="text-center">
-		<p>
-		  <button id="mic">녹음</button>
-		  <button id="stopMic">녹음정지</button>
-		</p>
-		<p>
-		  <audio id="player" controls></audio>
-		</p>
+
+	<div class="rec_container">
+		<div class="text-center">
+			<p class="rec_start" id="mic" style="margin-top:20px;" ><img src="/img/mic_ac.png" style="width:130px;height:130px;"/></p>
+			<p class="rec_stop" id="stopMic" style="margin-top:20px;"><img src="/img/stop.png"style="width:130px;height:130px;" /></p>
+			<p class="player_play" id="stop_btn"style="margin-top:20px;"><img src="/img/stop.png"style="width:130px;height:130px;"/></p>
+			<p class="player_stop" id="play_btn"style="margin-top:20px;"><img src="/img/play.png"style="width:130px;height:130px;"/></p>
+		
+		
+			<a id="scripts" href="/mic.html"><img src="/img/re_rec.png" style="width: 200px; height:43px;"/></a>
+			<div id="rec_timer">
+			<p><span id="min">00</span>:<span id="sec">00</span></p>
+			</div>
+		
+		</div>
 	</div>
-	
+
+
+		<div id"player_container">
+			<p>
+				<audio id="player" controls></audio>
+			</p>
+		</div>
+
+
+
 	<footer class="footer text-center">
       <div class="container">
 	  <a href="./index.html"><img src="img/home.png" height="40"/></a>
@@ -45,7 +173,47 @@
 	/* Vertically center the text there */
 	background-color: black;
 	}
+
+	.rec_container{
+		position: relative;
+		background-image :url(/img/bg.png);
+		height: 350px;
+		width:350px;
+		background-size: contain;
+	}
+
+	.rec_container .text-center{
+     position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%, -50%);                                                                   
+     font-size:18px;
+     color: white;
+     z-index: 2;
+     text-align: center;
+	 }
+	 .player_container{
+		width:100%;
+	 	 text-align:center;
+		 position: absolute;
+
+	 }
+	 .player_container .player{
+	 	 margin 0 auto;
+	 }
+}
+
 	</style>
+	<script>
+	
+			$("#player").hide();
+			$("#scripts").hide();
+			$("#stopMic").hide();
+			$("#rec_timer").hide();
+			$("#play_btn").hide();
+			$("#stop_btn").hide();
+			
+	</script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
